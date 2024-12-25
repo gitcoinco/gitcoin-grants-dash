@@ -407,11 +407,11 @@ else:
         # WE HERE RIGHT NOW
     data_load_state.text("")
 
-if program_option == 'GG22':
-    time_left = utils.get_time_left(pd.to_datetime('2024-11-06 23:59:00', utc=True))
-    st.write('')
-    if time_left != '0 days   0 hours   0 minutes':
-        st.write('⏰ Time Left: ' + time_left)
+median_end_time = pd.to_datetime(dfr['donations_end_time'].median(), utc=True)
+time_left = utils.get_time_left(median_end_time)
+st.write('')
+if time_left != '0 days   0 hours   0 minutes':
+    st.write('⏰ Time Left: ' + time_left)
     #else:
         #st.subheader('🎉 Round Complete 🎉')
 
